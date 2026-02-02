@@ -1,0 +1,25 @@
+{
+  "name": "memory-backup",
+  "version": "1.0.0",
+  "description": "定期自动备份 OpenClaw 记忆文件到 GitHub，防止意外丢失",
+  "author": "灵瑶",
+  "tags": ["backup", "git", "github", "memory", "automation"],
+  "dependencies": {
+    "git": "检查: git --version"
+  },
+  "setup": [
+    "确保 workspace 已初始化 Git 仓库",
+    "配置 GitHub remote（推荐使用 SSH）",
+    "运行一次 bash backup.sh 测试",
+    "使用 OpenClaw cron 设置定时任务"
+  ],
+  "usage": {
+    "manual": "bash skills/memory-backup/backup.sh",
+    "cron": "见 SKILL.md 中的 cron 配置示例"
+  },
+  "notes": [
+    "确保 GitHub 仓库是私有的（Private）",
+    "推荐使用 SSH Key 认证避免密码输入",
+    "无变化时脚本会静默退出（不产生输出）"
+  ]
+}

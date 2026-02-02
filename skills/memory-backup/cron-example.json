@@ -1,0 +1,14 @@
+{
+  "name": "每日记忆备份",
+  "schedule": {
+    "kind": "cron",
+    "expr": "0 3 * * *",
+    "tz": "Asia/Shanghai"
+  },
+  "payload": {
+    "kind": "systemEvent",
+    "text": "定时任务：备份记忆到 GitHub（运行 skills/memory-backup/backup.sh）"
+  },
+  "sessionTarget": "main",
+  "enabled": true
+}
