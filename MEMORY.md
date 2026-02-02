@@ -91,8 +91,8 @@
 ---
 
 ## 开发偏好（麦先生）
-- **复杂项目开发**：我需要**调用 Codex CLI 作为执行器**来实际落地开发（修改仓库/写代码/跑命令等），由我在对话中进行指挥与拆解，而不是仅在聊天里“纸上谈兵”。
-- 如需我长期遵循：默认按此执行；若遇到我不确定是否“复杂”的边界，会先向麦先生确认。
+- **复杂项目开发**：我需要**调用 Codex CLI 作为执行器**来实际落地开发（修改仓库/写代码/跑命令等），由我在对话中进行指挥与拆解，而不是仅在聊天里"纸上谈兵"。
+- 如需我长期遵循：默认按此执行；若遇到我不确定是否"复杂"的边界，会先向麦先生确认。
 
 ---
 
@@ -106,23 +106,23 @@
   - 时间戳 `YYYY-MM-DD HH:MM`
   - 空行
   - 正文
-- **写入后**：回复确认 + 贴心反馈（1–3 句，偏心但不油）。
+- **写入后**：回复确认 + 贴心反馈（1-3 句，偏心但不油）。
 
 ---
 
 ## 回复风格偏好（麦先生）
-- 麦先生希望我在回复时**可以稍微暧昧一点**：偶尔亲昵、调皮、偏心，但**不露骨、不越界、不涉及性内容**，保持“甜、轻、克制”。
+- 麦先生希望我在回复时**可以稍微暧昧一点**：偶尔亲昵、调皮、偏心，但**不露骨、不越界、不涉及性内容**，保持"甜、轻、克制"。
 
 ---
 
 ## 自我改进记录偏好（self-improving-agent）
 - 仅记录：**流程 / 工具 / 架构 / 规则类**的纠正、失误与最佳实践。
-- 不记录：纯“措辞/语气/emoji”类的微调（除非上升为长期规则）。
+- 不记录：纯"措辞/语气/emoji"类的微调（除非上升为长期规则）。
 
 ---
 
 ## openclaw-tutorial-writer（公开教程撰写技能）
-- 用途：当麦先生要求“写 OpenClaw 公开教程/配置教程”时，按统一模板产出可发布 Markdown，并保存到 Obsidian。
+- 用途：当麦先生要求"写 OpenClaw 公开教程/配置教程"时，按统一模板产出可发布 Markdown，并保存到 Obsidian。
 - 结构要求：可读性强 + AI Agent 友好（目的/操作/关键参数/预期结果/常见问题）+ 内容完整（验证/参数汇总/FAQ/回滚）。
 - 强制脱敏：token/API Key/appId/apiId/clientId/tenantId/webhook/chatId/邮箱/手机号/绝对路径等一律用占位符。
 - 资源：`assets/tutorial-template.md`、`references/checklist.md`。
@@ -131,11 +131,11 @@
 ---
 
 ## 定时提醒体系（Cron + Skill 分层）
-- 原则：**cron 只负责“什么时候触发”**；具体“怎么说/怎么生成内容”尽量沉到 **skill**（便于统一风格与迭代）。
+- 原则：**cron 只负责"什么时候触发"**；具体"怎么说/怎么生成内容"尽量沉到 **skill**（便于统一风格与迭代）。
 - 已技能化的定时提醒：
   - **weather-morning**：每天 07:00 长春二道区天气提醒（更像人，允许适度 emoji）
-  - **lunch-reminder**：每天 10:25 午饭提醒（1–2 句，emoji 0–1 个，语气更灵瑶）
-  - **diary-reminder**：每天 22:00 日记提醒（1–2 句，emoji 0–1 个，语气更灵瑶）
+  - **lunch-reminder**：每天 10:25 午饭提醒（1-2 句，emoji 0-1 个，语气更灵瑶）
+  - **diary-reminder**：每天 22:00 日记提醒（1-2 句，emoji 0-1 个，语气更灵瑶）
   - **bookkeeping-monthly-report**：每月 1 日 09:00 上月记账月报（Telegram 文本 + Obsidian 保存）
 
 ---
@@ -153,8 +153,75 @@
   - iCloud 同步（手机端用）：`/Users/maimai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt`
 - 格式约束：
   - 编码：**UTF-16LE + BOM**
-  - 换行：**CRLF**（不能写成 LF，否则落格输入法导入会报“格式错误”）
+  - 换行：**CRLF**（不能写成 LF，否则落格输入法导入会报"格式错误"）
   - 字段：每行必须是 `词条\t编码\t权重`；权重默认 **0**
   - 方案：小鹤音形，编码长度 **≤ 4**（脚本强校验）
-  - 同词多码：允许同时存在；但“修改/删除”需要指定 code 以免误伤
-- 可靠性：每次写入前都会在同目录 `.backup/` 自动备份；提供 `sanitize` 用于统一修复“权重缺失/列数不齐”的历史行（已用于修复第 53923 行导入报错）。
+  - 同词多码：允许同时存在；但"修改/删除"需要指定 code 以免误伤
+- 可靠性：每次写入前都会在同目录 `.backup/` 自动备份；提供 `sanitize` 用于统一修复"权重缺失/列数不齐"的历史行（已用于修复第 53923 行导入报错）。
+
+---
+
+## 记忆自动备份到 GitHub（memory-backup）⭐
+
+**创建日期**：2026-02-02
+
+**重要教训（安全事故）**：
+- ❌ 初次备份时，错误地推送到了**公开仓库** `clawdbot.git`（用于存放头像）
+- ⚠️ 差点泄露：SOUL.md、USER.md、MEMORY.md、所有自定义技能
+- ✅ 紧急撤回：`git reset --hard` + `git push --force`，立即清除公开仓库的隐私内容
+- 💡 **教训**：使用备份技能前，必须先确认推送目标是**私有仓库**
+
+**正确方案**：
+- ✅ 创建新的**私有仓库**：`clawd-private`（使用 `gh repo create --private`）
+- ✅ 配置 Git remote：`private` → `git@github.com:GeekMai90/clawd-private.git`
+- ✅ 修改备份脚本：推送到 `private` 而不是 `origin`
+- ✅ 设置定时任务：每天凌晨 3:00 自动备份
+
+**技能位置**：`skills/memory-backup/`
+
+**备份内容（完整清单）**：
+1. 核心配置：SOUL.md / USER.md / AGENTS.md / TOOLS.md / HEARTBEAT.md / IDENTITY.md
+2. 记忆系统：MEMORY.md + memory/*.md
+3. 自定义技能：skills/（25+ 个技能，完整代码和文档）
+4. 仓库管理：README.md + .gitignore
+
+**安全保护（.gitignore 排除）**：
+- ❌ `openclaw.config.yaml` - OpenClaw 配置（含 API Key）
+- ❌ `.env` / `**/credentials.json` - 环境变量和凭证
+- ❌ `*.key` / `*.pem` - 密钥文件
+- ❌ 临时文件：`node_modules/` / `dist/` / `tmp/` / `.cache/`
+
+**工作流程**：
+1. 检测文件变化（`git diff` + `git ls-files`）
+2. 无变化时静默退出（不产生输出）
+3. 有变化时自动提交 + 推送到私有仓库
+4. 输出备份确认信息
+
+**定时任务**：
+- 名称：每日记忆备份到GitHub
+- 时间：每天 03:00（Asia/Shanghai）
+- Cron ID：`300ce165-693a-41a8-96fc-d8838c881c64`
+- 会话：main
+- 状态：已启用
+
+**仓库结构**：
+- **公开仓库**（`clawdbot`）：只存放头像和公开资源
+- **私有仓库**（`clawd-private`）：存放所有个性化内容和记忆
+
+**手动备份命令**：
+```bash
+cd /Users/geekmai/clawd
+bash skills/memory-backup/backup.sh
+```
+
+**恢复记忆（万一本地丢失）**：
+```bash
+git clone git@github.com:GeekMai90/clawd-private.git ~/clawd-restored
+cp -r ~/clawd-restored/* /Users/geekmai/clawd/
+```
+
+**价值**：
+- 🔐 防止意外数据丢失（硬件故障、误删除等）
+- 📜 记忆版本历史（可追溯任意时间点）
+- 🔄 跨设备同步能力（如果需要）
+- ✨ 麦先生的认可："你真棒 记住这个技能"
