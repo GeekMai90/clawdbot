@@ -1,0 +1,41 @@
+{
+  "name": "content-production",
+  "version": "1.0.0",
+  "description": "内容生产系统技能（适配自 Obsidian + Codex 工作流）。支持选题管理、素材检索、文稿生成、发布记录、数据复盘。",
+  "author": "灵瑶 + Codex",
+  "tags": ["content", "writing", "obsidian", "codex", "workflow", "productivity"],
+  "dependencies": {
+    "obsidian": "访问 GeekMaiOB Vault",
+    "airbrush": "AI 生图技能（吉卜力风格）",
+    "codex": "Codex CLI（复杂写作任务）"
+  },
+  "triggers": [
+    "开工：{主题}",
+    "内容生产技能",
+    "记录：{选题}",
+    "深化：{选题}",
+    "标题：{文稿名}",
+    "配图：{场景描述}",
+    "发布：{文稿名}",
+    "复盘"
+  ],
+  "paths": {
+    "vault": "/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/内容生产",
+    "agents": "AGENTS.md",
+    "readme": "README.md",
+    "topics": "01-内容生产/选题管理/00-选题记录.md",
+    "style": "01-内容生产/方法论沉淀/写作风格画像.md",
+    "materials": "01-内容生产/内容素材库/",
+    "templates": "99-模板/"
+  },
+  "modes": {
+    "direct": "灵瑶直接执行（记录、查询、统计）",
+    "codex": "调用 Codex CLI（复杂写作）"
+  },
+  "notes": [
+    "与 Codex 共享同一套 Obsidian 数据",
+    "遵循 AGENTS.md 和写作风格画像",
+    "配图默认吉卜力风格",
+    "发布后提醒记录数据和复盘"
+  ]
+}
