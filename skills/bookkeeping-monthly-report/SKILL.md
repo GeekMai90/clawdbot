@@ -22,12 +22,12 @@ description: "Generate the monthly bookkeeping report for 麦先生 (data-first 
 ## Data sources (this machine)
 
 - Obsidian vault:
-  - `/Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB`
+  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB`
 - Monthly ledger:
   - `记账/YYYY-MM.md`
 - Generate stats via bookkeeping skill:
   ```bash
-  cd /Users/maimai/clawd/skills/bookkeeping
+  cd /Users/geekmai/clawd/skills/bookkeeping
   node scripts/bookkeeping.js stats YYYY-MM
   ```
 

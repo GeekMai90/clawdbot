@@ -6,7 +6,7 @@ description: Manage Rime/Squirrel (鼠须管) 小鹤音形 dictionaries on macOS
 # Rime（鼠须管）小鹤音形：词库增删改 + 一键部署
 
 ## Paths (macOS)
-- **Rime 用户目录**: `/Users/maimai/Library/Rime`
+- **Rime 用户目录**: `/Users/geekmai/Library/Rime`
 - **小鹤音形 txt 词库**:
   - `flypy_user.txt`：用户词库（默认新增写这里）
   - `flypy_top.txt`：置顶词库（需要优先于系统词时写这里）
@@ -14,7 +14,7 @@ description: Manage Rime/Squirrel (鼠须管) 小鹤音形 dictionaries on macOS
 - **部署工具**（鼠须管自带）:
   - `rime_deployer`: `/Library/Input Methods/Squirrel.app/Contents/MacOS/rime_deployer`
   - shared_data_dir: `/Library/Input Methods/Squirrel.app/Contents/SharedSupport`
-  - staging_dir: `/Users/maimai/Library/Rime/build`
+  - staging_dir: `/Users/geekmai/Library/Rime/build`
 
 ## Format rules
 - 文件编码：**UTF-8**
@@ -86,4 +86,4 @@ python3 skills/rime-flypy/scripts/rime_flypy.py deploy
 - “重新部署/重新部署鼠须管” → `deploy`
 
 ## Safety
-- Every write creates a timestamped backup in `/Users/maimai/Library/Rime/.backup/`.
+- Every write creates a timestamped backup in `/Users/geekmai/Library/Rime/.backup/`.

@@ -15,7 +15,7 @@ const REWATCHABLE_FILE = path.join(DATA_DIR, 'rewatchable.json');
 const MOVIES_FILE = path.join(DATA_DIR, 'movies.json');
 
 // Obsidian 路径
-const VAULT_PATH = '/Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
+const VAULT_PATH = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
 const MOVIE_DIR = path.join(VAULT_PATH, '电影');
 
 // 加载 JSON

@@ -206,7 +206,7 @@ obsidian-cli delete "路径/笔记"
 
 ```bash
 # Vault 路径变量
-VAULT="/Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
+VAULT="/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 
 # 列出所有笔记
 find "$VAULT" -name "*.md" -type f | grep -v "\.obsidian"
@@ -246,7 +246,7 @@ echo "新内容" >> "$VAULT/笔记路径.md"
 **示例：**
 ```bash
 # 追加日记到当月文件
-VAULT="/Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
+VAULT="/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 MONTH=$(date '+%Y-%m')
 DIARY_FILE="$VAULT/000-日记/$MONTH.md"
 
@@ -278,7 +278,7 @@ EOF
 **配置文件**：`~/.config/airbrush/credentials.json`  
 **脚本位置**：`skills/airbrush/airbrush.sh`  
 **图片存储**：
-- 专用文件夹：`/Users/maimai/AI-Images/`
+- 专用文件夹：`/Users/geekmai/AI-Images/`
 - 下载文件夹：`~/Downloads/`（自动复制一份）
 
 ### 🌟 智能增强功能
@@ -313,7 +313,7 @@ EOF
 
 ```bash
 # 基础生成（默认使用 stable-diffusion-xl-pro，large 尺寸）
-# 图片会自动保存到 /Users/maimai/AI-Images/
+# 图片会自动保存到 /Users/geekmai/AI-Images/
 skills/airbrush/airbrush.sh "A beautiful sunset over the ocean"
 
 # 指定引擎和尺寸
@@ -845,7 +845,7 @@ cp data/rewatchable.json data/rewatchable.backup.json
 ### 🛠️ 常用命令
 
 ```bash
-cd /Users/maimai/clawd/skills/bookkeeping
+cd /Users/geekmai/clawd/skills/bookkeeping
 
 # 记账
 node bookkeeping.js expense 15 餐饮 羊汤牛肉馅饼

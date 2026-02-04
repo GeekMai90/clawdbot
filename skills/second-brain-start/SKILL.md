@@ -9,7 +9,7 @@ user-invocable: true
 1) 在主机上执行（用 bash/命令工具）：
 
 ```bash
-cd /Users/maimai/clawd/second-brain
+cd /Users/geekmai/clawd/second-brain
 chmod +x scripts/start.sh scripts/stop.sh
 ./scripts/start.sh
 ```

@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-RIME_DIR = Path("/Users/maimai/Library/Rime")
+RIME_DIR = Path("/Users/geekmai/Library/Rime")
 
 DEPLOYER = Path("/Library/Input Methods/Squirrel.app/Contents/MacOS/rime_deployer")
 SHARED_DIR = Path("/Library/Input Methods/Squirrel.app/Contents/SharedSupport")

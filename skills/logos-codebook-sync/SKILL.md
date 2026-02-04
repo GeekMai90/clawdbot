@@ -6,8 +6,8 @@ description: Sync and edit 落格输入法 (LogOS) custom codebook/码表 files 
 # 落格输入法 码表自动维护（Mac 本地 → iCloud 同步）
 
 ## Files
-- **Mac 本地码表（source of truth）**：`/Users/maimai/Documents/落格输入法/小麦音形 1.2.txt`
-- **iCloud 同步码表（给手机端用）**：`/Users/maimai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt`
+- **Mac 本地码表（source of truth）**：`/Users/geekmai/Documents/落格输入法/小麦音形 1.2.txt`
+- **iCloud 同步码表（给手机端用）**：`/Users/geekmai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt`
 
 Both are **UTF-16LE** text with tab-separated fields.
 
@@ -27,8 +27,8 @@ Use the script:
 
 ```bash
 python3 skills/logos-codebook-sync/scripts/update_codebook.py \
-  --mac "/Users/maimai/Documents/落格输入法/小麦音形 1.2.txt" \
-  --icloud "/Users/maimai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt" \
+  --mac "/Users/geekmai/Documents/落格输入法/小麦音形 1.2.txt" \
+  --icloud "/Users/geekmai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt" \
   <command> [args...]
 ```
 

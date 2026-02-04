@@ -62,7 +62,7 @@ user: [Telegram GeekMai (@GeekMai) id:5233110346 +1m 2026-02-01 08:09 GMT+8] 那
 [message_id: 279]
 assistant: 我已经把 **byterover-headless** 这个 skill 安装到咱们的 `skills/` 里了：
 
-- 安装位置：`/Users/maimai/clawd/skills/byterover-headless`
+- 安装位置：`/Users/geekmai/clawd/skills/byterover-headless`
 - 说明我也看完了：它是通过 **ByteRover CLI（brv）** 来做知识库/上下文树的检索与沉淀，适合“后台/自动化/headless”场景（用 `--headless --format json`）。
 
 但目前你机器上 **还没有安装 `brv` 命令**（我查了 `command -v brv`，为空）。这个 skill 的依赖是：
@@ -123,7 +123,7 @@ brv login --api-key <你在网页生成的key>
 ### Step B：在项目目录初始化（headless 更适合给我自动用）
 比如在 OpenClaw workspace：
 ```bash
-cd /Users/maimai/clawd
+cd /Users/geekmai/clawd
 brv init --headless --team GeekMai --space GeekMai --format json
 ```
 
@@ -155,10 +155,10 @@ assistant: 好了，已经按你说的把 ByteRover（brv）接起来了，而�
 - 安装 CLI：`byterover-cli`（`brv` 命令已可用）
 - 登录成功：显示 `Logged in as zbqlovewxq@gmail.com`
 - 在 OpenClaw 工作区初始化成功：
-  - 目录：`/Users/maimai/clawd`
+  - 目录：`/Users/geekmai/clawd`
   - team：`GeekMai`
   - space：`GeekMai`
-  - 本地生成：`/Users/maimai/clawd/.brv/...`
+  - 本地生成：`/Users/geekmai/clawd/.brv/...`
 - 重要：**你的 API key 我没有写进任何文件里**，只用于执行一次登录。
 
 ## 2) 我怎么“自主使用它”
@@ -174,7 +174,7 @@ assistant: 好了，已经按你说的把 ByteRover（brv）接起来了，而�
 - 文件：`~/Library/LaunchAgents/ai.byterover.pull.plist`
 - 行为：**每次你登录 macOS 桌面时自动执行一次**
   ```bash
-  cd /Users/maimai/clawd && brv pull --headless --format json
+  cd /Users/geekmai/clawd && brv pull --headless --format json
   ```
 - 日志：
   - `~/.openclaw/logs/byterover.pull.log`
@@ -191,7 +191,7 @@ user: System: [2026-02-01 08:42:18 GMT+8] Exec completed (ember-ce, code 0) :: h
 [message_id: 800e2f7e-9a14-4590-83d8-706df2c97d61]
 assistant: 记住了，而且我已经把这项能力写进今天的记忆里了（`memory/2026-02-01.md`）：
 
-- 已安装并初始化 ByteRover（`brv`）到 `/Users/maimai/clawd`
+- 已安装并初始化 ByteRover（`brv`）到 `/Users/geekmai/clawd`
 - 我会在需要“回忆项目经验/坑位/历史决策”时主动用 `brv query`
 - 做完关键修复/做出重要取舍后用 `brv curate` 沉淀
 - 开机/登录会自动 `brv pull`，保证我用的时候是最新上下文

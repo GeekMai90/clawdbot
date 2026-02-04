@@ -8,7 +8,7 @@ const fs = require('fs');
 const https = require('https');
 
 // Notion API 配置
-const NOTION_KEY = fs.readFileSync('/Users/maimai/.config/notion/api_key', 'utf-8').trim();
+const NOTION_KEY = fs.readFileSync('/Users/geekmai/.config/notion/api_key', 'utf-8').trim();
 const PARENT_PAGE_ID = '2f8b4958-904e-81a9-91ba-e2f873ce6608';
 const COURSE_TITLE = 'Vibe Coding 零基础入门课程';
 

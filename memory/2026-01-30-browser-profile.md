@@ -305,7 +305,7 @@ user: 你修改完了吗
 assistant: 看到问题了！脚本只翻译了完全匹配的文本，但页面是 React/Vue 动态生成的，很多文本节点有空格或换行。
 
 我来写一个改进版，使用更强的匹配逻辑：
-assistant: 我写了一个改进版！已经保存到 `/Users/maimai/clawd/openclaw-chinese.user.js`
+assistant: 我写了一个改进版！已经保存到 `/Users/geekmai/clawd/openclaw-chinese.user.js`
 
 **新版改进：**
 1. ✅ 更强的文本匹配（支持带空格、换行的文本）
@@ -319,7 +319,7 @@ assistant: 我写了一个改进版！已经保存到 `/Users/maimai/clawd/openc
 2. 点击 "+" 创建新脚本（或者编辑你之前创建的脚本）
 3. 复制这个文件的内容：
 ```bash
-cat /Users/maimai/clawd/openclaw-chinese.user.js
+cat /Users/geekmai/clawd/openclaw-chinese.user.js
 ```
 4. 粘贴到 Tampermonkey 编辑器
 5. 保存（Ctrl+S 或 Cmd+S）

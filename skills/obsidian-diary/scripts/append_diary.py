@@ -6,7 +6,7 @@ Trigger contract:
 - Diary body is text from line 2 onward
 
 File:
-- Vault: /Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB
+- Vault: /Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB
 - Diary monthly file: 000-日记/YYYY-MM.md
 - Create file with heading '# YYYY-MM' if missing
 - Append:

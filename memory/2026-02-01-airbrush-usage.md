@@ -110,7 +110,7 @@ skills/airbrush/airbrush.sh \
 ## 📂 图片存储
 
 生成的图片会自动保存到：
-- **专用文件夹**: `/Users/maimai/AI-Images/`
+- **专用文件夹**: `/Users/geekmai/AI-Images/`
 - **下载文件夹**: `~/Downloads/`（自动复制一份）
 - **文件名格式**: `airbrush_YYYYMMDD_HHMMSS.jpg`
 
@@ -150,8 +150,8 @@ assistant: ✨ **图片生成成功！**
 https://dbuzz-assets.s3.amazonaws.com/image/ai/ld/image-912732091528.jpg
 
 **💾 本地文件：**  
-- `/Users/maimai/AI-Images/airbrush_20260201_113258.jpg`
-- `/Users/maimai/Downloads/airbrush_20260201_113258.jpg`（也复制了一份到下载文件夹）
+- `/Users/geekmai/AI-Images/airbrush_20260201_113258.jpg`
+- `/Users/geekmai/Downloads/airbrush_20260201_113258.jpg`（也复制了一份到下载文件夹）
 
 **📊 账户信息：**
 - 剩余额度：487 点

@@ -95,7 +95,7 @@ user: 那我觉得咱就不要这个日记了 这个第二大脑就是专门用�
 [message_id: 0a86cd80-5d2a-4496-8614-c8d0d9c274be]
 assistant: 行，我已经把「第二大脑」**收敛成纯系统记忆查看器**了：不再展示/使用“日记”，也不再展示“文档”。
 
-现在它的定位就是：**只看 `/Users/maimai/clawd/memory` 里记录了什么**（系统记忆）。
+现在它的定位就是：**只看 `/Users/geekmai/clawd/memory` 里记录了什么**（系统记忆）。
 
 我做了这些调整（并且 `npm run lint` + `npm run build` 都 ✅ 通过，服务也重启了）：
 
@@ -114,7 +114,7 @@ user: System: [2026-01-31 12:48:13 GMT+8] Exec completed (mild-tid, code 0) :: e
 assistant: 已删（走“可恢复”的删除方式）：
 
 - ✅ 已把 `second-brain/brain/journal/` 整个目录移到系统废纸篓  
-  位置：`/Users/maimai/.Trash/journal`
+  位置：`/Users/geekmai/.Trash/journal`
 
 现在 `second-brain/brain/` 下只剩 `docs/` 目录。
 
@@ -123,7 +123,7 @@ user: 没有用的就删了吧
 [message_id: f2dba631-b04c-4932-b7b2-eaf6230c2d52]
 assistant: 行，已经把没用的也清掉了（同样是“丢进废纸篓，可恢复”）：
 
-- ✅ `second-brain/brain/docs/` 已删除 → 移到：`/Users/maimai/.Trash/docs`
+- ✅ `second-brain/brain/docs/` 已删除 → 移到：`/Users/geekmai/.Trash/docs`
 - ✅ 现在 `second-brain/brain/` 目录已经空了
 
 并且我顺手跑了一遍：
@@ -131,7 +131,7 @@ assistant: 行，已经把没用的也清掉了（同样是“丢进废纸篓，
 - `npm run build` ✅
 - 服务已重启：http://localhost:3030（pid=75790）
 
-现在第二大脑就是**纯系统记忆查看器**，数据来源只看 `/Users/maimai/clawd/memory`。
+现在第二大脑就是**纯系统记忆查看器**，数据来源只看 `/Users/geekmai/clawd/memory`。
 user: System: [2026-01-31 12:50:26 GMT+8] Exec completed (fresh-sh, code 0) :: enerating static pages using 7 workers (2/4) Generating static pages using 7 workers (3/4) ✓ Generating static pages using 7 workers (4/4) in 84.6ms Finalizing page optimization ... Collecting build traces ... Route (app) ┌ ○ / ├ ○ /_not-found ├ ƒ /doc/[...id] ├ ƒ /journal/[...id] └ ƒ /memory/[...id] ○ (Static) prerendered as static content ƒ (Dynamic) server-rendered on demand
 
 行 以后我跟你说打开第二大脑 你就帮我启动这个服务

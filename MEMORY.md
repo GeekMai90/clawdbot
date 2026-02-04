@@ -155,8 +155,8 @@
 ## 落格输入法码表同步与编辑（logos-codebook-sync）
 - 目的：麦先生使用**落格输入法（LogOS）**，Mac 与 iPhone 端码表不能自动同步；需要我根据自然语言指令自动改码表，并确保两端一致。
 - 文件路径：
-  - Mac 本地（source of truth）：`/Users/maimai/Documents/落格输入法/小麦音形 1.2.txt`
-  - iCloud 同步（手机端用）：`/Users/maimai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt`
+  - Mac 本地（source of truth）：`/Users/geekmai/Documents/落格输入法/小麦音形 1.2.txt`
+  - iCloud 同步（手机端用）：`/Users/geekmai/Library/Mobile Documents/com~apple~CloudDocs/Documents/落格输入法/小麦音形 1.2.txt`
 - 格式约束：
   - 编码：**UTF-16LE + BOM**
   - 换行：**CRLF**（不能写成 LF，否则落格输入法导入会报"格式错误"）

@@ -23,7 +23,7 @@ SIZE="large"
 SEED=""
 GUIDANCE=""
 NEGATIVE=""
-OUTPUT_DIR="/Users/maimai/AI-Images"
+OUTPUT_DIR="/Users/geekmai/AI-Images"
 AUTO_TRANSLATE="false"  # 默认不做机翻：由灵瑶先理解中文需求并写成英文提示词；如需脚本机翻可开启
 
 # 解析命令行参数

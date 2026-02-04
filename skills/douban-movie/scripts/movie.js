@@ -16,7 +16,7 @@ const MOVIES_FILE = path.join(DATA_DIR, 'movies.json');
 const TRENDING_FILE = path.join(DATA_DIR, 'trending.json');
 
 // Obsidian vault 路径（用户数据改为 Markdown）
-const VAULT_PATH = '/Users/maimai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
+const VAULT_PATH = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
 const MOVIE_DIR = path.join(VAULT_PATH, '电影');
 
 // 确保目录存在
