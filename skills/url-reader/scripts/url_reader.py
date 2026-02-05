@@ -339,13 +339,18 @@ async def main():
         print("   ⚠ 此平台可能需要登录态，如果 Jina 失败会用 Playwright 尝试")
 
     # 2. 抓取内容（两层降级）
-    print("\n📥 抓取内容…")
-    content = fetch_jina(url)
+    # 微信公众号直接用 Playwright，Jina 无法处理（会超时）
+    SKIP_JINA_PLATFORMS = {"wechat"}
 
-    if content is None:
-        print("\n📥 降级到 Playwright…")
-        import asyncio
+    if platform in SKIP_JINA_PLATFORMS:
+        print(f"\n📥 {platform} 平台直接使用 Playwright…")
         content = await fetch_playwright(url, platform)
+    else:
+        print("\n📥 抓取内容…")
+        content = fetch_jina(url)
+        if content is None:
+            print("\n📥 降级到 Playwright…")
+            content = await fetch_playwright(url, platform)
 
     if content is None:
         print("\n❌ 所有策略均失败，无法获取内容")
