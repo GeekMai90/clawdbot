@@ -61,7 +61,59 @@ def identify_platform(url: str) -> dict:
     return {"platform": "unknown", "needs_login": False}
 
 
-# ─── 2. Jina Reader（首选，免费） ───────────────────────────
+# ─── 2. Firecrawl（首选，AI驱动） ──────────────────────────
+def load_firecrawl_key() -> str | None:
+    """从配置文件读取 Firecrawl API Key"""
+    key_path = Path(os.path.expanduser("~/.config/firecrawl/api_key"))
+    if key_path.exists():
+        return key_path.read_text().strip()
+    return os.environ.get("FIRECRAWL_API_KEY")
+
+
+def fetch_firecrawl(url: str) -> str | None:
+    """通过 Firecrawl API 获取 Markdown 内容"""
+    api_key = load_firecrawl_key()
+    if not api_key:
+        print("  ⚠ Firecrawl API Key 未配置，跳过")
+        return None
+
+    try:
+        from firecrawl import FirecrawlApp
+    except ImportError:
+        print("  ⚠ firecrawl-py 未安装，跳过")
+        return None
+
+    try:
+        print("  → 调用 Firecrawl…")
+        app = FirecrawlApp(api_key=api_key)
+        result = app.scrape(url)
+
+        # v2 返回 Document 对象，用 getattr（踩坑：不能用 .get()）
+        markdown = getattr(result, "markdown", None) or (result.get("markdown") if isinstance(result, dict) else None)
+
+        if not markdown or len(markdown) < 100:
+            print("  ⚠ Firecrawl 返回内容过短，降级…")
+            return None
+        if any(kw in markdown for kw in BLACKLIST):
+            print("  ⚠ Firecrawl 返回验证页面，降级…")
+            return None
+
+        # 从 metadata 提取 title，注入到开头（统一格式，方便 extract_title 解析）
+        metadata = getattr(result, "metadata", None)
+        if metadata:
+            title = getattr(metadata, "title", None) or getattr(metadata, "og_title", None)
+            if title:
+                markdown = f"Title: {title}\n\n{markdown}"
+
+        print(f"  ✓ Firecrawl 获取成功（{len(markdown)} 字符）")
+        return markdown
+
+    except Exception as e:
+        print(f"  ⚠ Firecrawl 失败：{e}，降级…")
+        return None
+
+
+# ─── 3. Jina Reader（备选，免费） ───────────────────────────
 def fetch_jina(url: str) -> str | None:
     """通过 Jina Reader 获取 Markdown 内容"""
     jina_url = f"https://r.jina.ai/{url}"
@@ -338,16 +390,24 @@ async def main():
     if platform_info["needs_login"]:
         print("   ⚠ 此平台可能需要登录态，如果 Jina 失败会用 Playwright 尝试")
 
-    # 2. 抓取内容（两层降级）
-    # 微信公众号直接用 Playwright，Jina 无法处理（会超时）
-    SKIP_JINA_PLATFORMS = {"wechat"}
+    # 2. 抓取内容（三层降级：Firecrawl → Jina → Playwright）
+    # 微信公众号直接用 Playwright，Firecrawl/Jina 均无法处理
+    DIRECT_PLAYWRIGHT_PLATFORMS = {"wechat"}
 
-    if platform in SKIP_JINA_PLATFORMS:
+    if platform in DIRECT_PLAYWRIGHT_PLATFORMS:
         print(f"\n📥 {platform} 平台直接使用 Playwright…")
         content = await fetch_playwright(url, platform)
     else:
+        # 第一层：Firecrawl
         print("\n📥 抓取内容…")
-        content = fetch_jina(url)
+        content = fetch_firecrawl(url)
+
+        # 第二层：Jina
+        if content is None:
+            print("\n📥 降级到 Jina…")
+            content = fetch_jina(url)
+
+        # 第三层：Playwright
         if content is None:
             print("\n📥 降级到 Playwright…")
             content = await fetch_playwright(url, platform)
