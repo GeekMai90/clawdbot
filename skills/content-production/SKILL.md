@@ -13,7 +13,7 @@ description: "内容生产系统技能（适配自 Obsidian + Codex 工作流）
 - Codex：深度写作、复杂改写、长文生成
 - 灵瑶：选题记录、素材查询、数据统计、流程调度
 
-**数据源：** `GeekMaiOB/内容生产/`（Obsidian Vault）
+**数据源：** `GeekMaiOB/06-创作/`（Obsidian Vault）
 
 ---
 
@@ -166,7 +166,7 @@ bash airbrush.sh \
 ### Obsidian Vault 根目录
 
 ```bash
-/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/内容生产/
+/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/06-创作/
 ```
 
 ### 关键文件
@@ -260,7 +260,7 @@ bash airbrush.sh \
 ### 读取 Obsidian 文件
 
 ```bash
-VAULT_ROOT="/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/内容生产"
+VAULT_ROOT="/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/06-创作"
 
 # 读取选题记录
 cat "$VAULT_ROOT/01-内容生产/选题管理/00-选题记录.md"

@@ -7,7 +7,7 @@ Trigger contract:
 
 File:
 - Vault: /Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB
-- Diary monthly file: 000-日记/YYYY-MM.md
+- Diary monthly file: 01-日记/私人日记/YYYY-MM.md
 - Create file with heading '# YYYY-MM' if missing
 - Append:
 
@@ -34,7 +34,7 @@ import sys
 VAULT = Path(
     "/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 )
-DIARY_DIR = "000-日记"
+DIARY_DIR = "01-日记/私人日记"
 
 
 @dataclass

@@ -1,0 +1,24 @@
+{
+  "方案1_文字翻译": {
+    "API_ENDPOINT": "https://api.alter.com/v1/chat/completions",
+    "MODEL_NAME": "gpt-4o-mini",
+    "YOUR_API_KEY": "sk-xxxxxxxxxxxxxxxxxxxxxxxx",
+    "说明": "把上面三个参数填到快捷指令里"
+  },
+  "方案2_视觉翻译": {
+    "API_ENDPOINT": "https://api.alter.com/v1/chat/completions",
+    "VISION_MODEL_NAME": "gpt-4o",
+    "YOUR_API_KEY": "sk-xxxxxxxxxxxxxxxxxxxxxxxx",
+    "说明": "视觉模型需要支持 image_url，如 gpt-4o / claude-3-5-sonnet"
+  },
+  "请求头_Headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer {YOUR_API_KEY}"
+  },
+  "温馨提示": [
+    "Authorization 中的 {YOUR_API_KEY} 替换成实际 API Key",
+    "Alter 的 API 端点可能不是这个，看 Alter 文档",
+    "推荐先试方案1（文字翻译），简单快速",
+    "快捷指令创建好后可以添加到小组件/Siri"
+  ]
+}

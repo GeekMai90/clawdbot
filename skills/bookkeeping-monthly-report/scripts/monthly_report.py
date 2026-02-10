@@ -9,7 +9,7 @@ Outputs JSON to stdout:
 }
 
 Data sources:
-- Obsidian: GeekMaiOB/记账/YYYY-MM.md
+- Obsidian: GeekMaiOB/02-生活/记账/YYYY-MM.md
 - Stats: node /Users/geekmai/clawd/skills/bookkeeping/scripts/bookkeeping.js stats YYYY-MM
 
 The goal is deterministic + cron-friendly.
@@ -27,7 +27,7 @@ from pathlib import Path
 VAULT = Path(
     "/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 )
-BOOKKEEPING_DIR = VAULT / "记账"
+BOOKKEEPING_DIR = VAULT / "02-生活/记账"
 REPORT_DIR = BOOKKEEPING_DIR / "月报"
 BOOKKEEPING_CLI_DIR = Path("/Users/geekmai/clawd/skills/bookkeeping")
 BOOKKEEPING_JS = BOOKKEEPING_CLI_DIR / "scripts" / "bookkeeping.js"

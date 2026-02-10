@@ -195,7 +195,7 @@ migrateWatched();
 migrateWishlist();
 migrateRewatchable();
 
-console.log('\n✅ 迁移完成！数据已保存到: GeekMaiOB/电影/');
+console.log('\n✅ 迁移完成！数据已保存到: GeekMaiOB/02-生活/电影/');
 console.log('\n💡 提示:');
 console.log('   - 观影记录按年份分文件（如 2026.md）');
 console.log('   - 想看清单在 想看清单.md');

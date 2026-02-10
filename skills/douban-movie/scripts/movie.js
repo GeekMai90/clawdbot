@@ -17,7 +17,7 @@ const TRENDING_FILE = path.join(DATA_DIR, 'trending.json');
 
 // Obsidian vault 路径（用户数据改为 Markdown）
 const VAULT_PATH = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
-const MOVIE_DIR = path.join(VAULT_PATH, '电影');
+const MOVIE_DIR = path.join(VAULT_PATH, '02-生活/电影');
 
 // 确保目录存在
 if (!fs.existsSync(MOVIE_DIR)) {
@@ -720,7 +720,7 @@ function cli() {
 
 数据存储位置:
   参考库（JSON）:  skills/douban-movie/data/
-  用户数据（MD）:  GeekMaiOB/电影/
+  用户数据（MD）:  GeekMaiOB/02-生活/电影/
 
 示例:
   node movie.js hot 5

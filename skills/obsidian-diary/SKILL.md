@@ -1,6 +1,6 @@
 ---
 name: obsidian-diary
-description: "Append diary entries to the user’s Obsidian vault. Use when the user sends a message whose first line starts with '日记' (diary). Extract the diary body from line 2 onward, append to Obsidian file 000-日记/YYYY-MM.md with a timestamp block, creating the monthly file if missing. After writing, reply with a warm confirmation and a short supportive reflection." 
+description: "Append diary entries to the user’s Obsidian vault. Use when the user sends a message whose first line starts with '日记' (diary). Extract the diary body from line 2 onward, append to Obsidian file 01-日记/私人日记/YYYY-MM.md with a timestamp block, creating the monthly file if missing. After writing, reply with a warm confirmation and a short supportive reflection." 
 ---
 
 # Obsidian Diary
@@ -20,7 +20,7 @@ Write diary entries into the user’s Obsidian vault (Markdown), following the u
 - Vault path (this machine):
   - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB`
 - Monthly diary file:
-  - `000-日记/YYYY-MM.md`
+  - `01-日记/私人日记/YYYY-MM.md`
 
 ### Append format
 Append to the end of the monthly file:

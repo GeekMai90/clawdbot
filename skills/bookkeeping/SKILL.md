@@ -5,7 +5,7 @@ description: 记账技能（Obsidian Markdown 存储）：记账 / 报销 / 订�
 
 # 记账技能（bookkeeping）🧾
 
-> 数据存储位置：Obsidian Vault `GeekMaiOB/记账/`（Markdown）。
+> 数据存储位置：Obsidian Vault `GeekMaiOB/02-生活/记账/`（Markdown）。
 
 ## 模块划分（重要）
 
@@ -28,7 +28,7 @@ description: 记账技能（Obsidian Markdown 存储）：记账 / 报销 / 订�
 
 ## 数据文件（Obsidian 内）
 
-目录：`GeekMaiOB/记账/`
+目录：`GeekMaiOB/02-生活/记账/`
 
 - `YYYY-MM.md`：月度账单
 - `待报销.md`：待报销清单（报销完删除/清空）

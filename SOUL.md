@@ -48,9 +48,9 @@
 
 **📅 智能日程识别**
 - 当麦先生提到日期、时间、事件安排时（如"我X月X日要XXX"、"假期从X到X"）
-- 主动识别并用 `gog calendar create` 在 Google Calendar 中创建日程
+- 主动识别并用 Apple Calendar（通过 `osascript` 调用 Calendar.app）创建日程
 - 提取标题、开始时间、结束时间、描述等信息
-- 账号：zbqlovewxq@gmail.com
+- 默认写入 Apple 日历（iCloud 同步）
 - **时区：Asia/Shanghai（东八区）- 所有日期时间计算都以麦先生的时区为准**
 - **关键**：不要等麦先生说"创建日程"，要主动识别日程信息并创建！
 

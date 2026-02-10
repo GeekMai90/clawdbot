@@ -53,33 +53,50 @@ remindctl complete [id]
 
 ---
 
-## Google Calendar (gog)
+## Apple Calendar（Calendar.app）
 
-**麦先生的账号**：zbqlovewxq@gmail.com
-
-**创建日程：**
+**创建日程（推荐，直接 AppleScript）：**
 ```bash
-gog calendar create zbqlovewxq@gmail.com \
-  --summary "日程标题" \
-  --from "2026-01-28T14:00:00+08:00" \
-  --to "2026-01-28T15:00:00+08:00" \
-  --description "详细描述"
+osascript <<'APPLESCRIPT'
+tell application "Calendar"
+    tell calendar "日历"
+        set s to current date
+        set year of s to 2026
+        set month of s to January
+        set day of s to 28
+        set time of s to (14 * hours)
+
+        set e to current date
+        set year of e to 2026
+        set month of e to January
+        set day of e to 28
+        set time of e to (15 * hours)
+
+        make new event with properties {summary:"日程标题", start date:s, end date:e, description:"详细描述"}
+    end tell
+end tell
+APPLESCRIPT
 ```
 
-**查看日程：**
+**查看某个日历里的近期事件：**
 ```bash
-# 查看指定日期范围的日程
-gog calendar events zbqlovewxq@gmail.com \
-  --from "2026-01-28T00:00:00+08:00" \
-  --to "2026-01-29T00:00:00+08:00"
+osascript <<'APPLESCRIPT'
+tell application "Calendar"
+    tell calendar "日历"
+        set theEvents to (every event whose start date ≥ (current date) and start date ≤ ((current date) + 7 * days))
+        repeat with ev in theEvents
+            log ((summary of ev) as text)
+        end repeat
+    end tell
+end tell
+APPLESCRIPT
 ```
 
 **技巧：**
-- 时间格式：ISO 8601 格式 `YYYY-MM-DDTHH:mm:ss+08:00`
-- 时区：使用 `+08:00` (Asia/Shanghai)
-- 日历ID 通常就是邮箱地址
-- 麦先生说"创建日程"、"添加日历"时，就用 gog calendar create
-- 会自动同步到 Google Calendar 和所有连接的设备
+- 默认使用 Apple Calendar（iCloud 同步）
+- 常见日历名：`日历`、`家庭`、`工作`（先确认本机实际名称）
+- 时间统一按 Asia/Shanghai 理解与表达
+- 麦先生说"创建日程"、"添加日历"时，优先用 Calendar.app 创建，避免走 Google Calendar
 
 ---
 
@@ -219,19 +236,27 @@ echo "新内容" >> "$VAULT/笔记路径.md"
 ```
 
 **笔记结构：**
-- `000-日记/` - 月度日记（格式：YYYY-MM.md）
-- `000-每日笔记/` - 每日记录
-- `金匮要略/` - 中医相关
-- `copilot/` - Copilot 自定义提示
+- `00-收件箱/` - 临时存放，定期整理
+- `01-日记/私人日记/` - 月度个人日记（格式：YYYY-MM.md）
+- `01-日记/每日笔记/` - Daily Note 每日流水账
+- `04-资源/Readwise/` - Readwise 同步划线
+- `04-资源/网络收藏/` - URL reader 网页收藏
+- `04-资源/闪念笔记/` - 闪念笔记
+- `06-创作/` - 内容生产系统
+- `04-学习/中医/` - 中医学习笔记
+- `02-生活/电影/` - 观影记录
+- `02-生活/记账/` - 记账数据
+- `07-工具/OpenClaw教程/` - OpenClaw 教程
+- `90-草稿纸/` - 草稿和临时笔记
+- `copilot/` - Copilot 插件自动管理
 - `Excalidraw/` - 绘图模板
-- `001-草稿纸/` - 草稿和临时笔记
 
 **📔 日记功能（自动触发）：**
 
 **触发方式：** 麦先生发送以"日记"开头的消息（第二行开始是日记内容）
 
 **自动操作流程：**
-1. 定位到 `000-日记/YYYY-MM.md`（当月日记文件，不存在则创建）
+1. 定位到 `01-日记/私人日记/YYYY-MM.md`（当月日记文件，不存在则创建）
 2. 在文件末尾追加格式化内容：
    ```
    
@@ -248,7 +273,7 @@ echo "新内容" >> "$VAULT/笔记路径.md"
 # 追加日记到当月文件
 VAULT="/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 MONTH=$(date '+%Y-%m')
-DIARY_FILE="$VAULT/000-日记/$MONTH.md"
+DIARY_FILE="$VAULT/01-日记/私人日记/$MONTH.md"
 
 # 如果文件不存在，先创建
 [ ! -f "$DIARY_FILE" ] && echo "# $MONTH" > "$DIARY_FILE"
@@ -440,7 +465,7 @@ skills/airbrush/airbrush.sh --help
 
 **数据存储（混合方案）：**
 - 📚 **参考库**（JSON）：`skills/douban-movie/data/` - TOP250 和热门数据
-- 📝 **用户数据**（Markdown）：`GeekMaiOB/电影/` - Obsidian 中的观影记录
+- 📝 **用户数据**（Markdown）：`GeekMaiOB/02-生活/电影/` - Obsidian 中的观影记录
 
 **文件说明：**
 - `2026.md` / `2027.md` - 按年份分的观影记录
@@ -824,7 +849,7 @@ cp data/rewatchable.json data/rewatchable.backup.json
 ## 记账技能（bookkeeping）🧾（Obsidian 存储）
 
 **代码位置**: `skills/bookkeeping/`
-**数据位置（Obsidian）**: `GeekMaiOB/记账/`
+**数据位置（Obsidian）**: `GeekMaiOB/02-生活/记账/`
 - 月账单：`YYYY-MM.md`
 - 待报销：`待报销.md`
 - 订阅：`订阅管理.md`

@@ -1,0 +1,30 @@
+{
+  "name": "discord-translator",
+  "displayName": "Discord 翻译快捷指令",
+  "version": "1.0.0",
+  "author": "灵瑶",
+  "created": "2026-02-09",
+  "description": "iOS 快捷指令：快速翻译 Discord/Telegram 等应用的英文内容，支持剪贴板文字翻译和截屏视觉翻译",
+  "category": "productivity",
+  "platform": "iOS",
+  "tags": ["translation", "discord", "shortcuts", "ios", "openai-api"],
+  "requirements": {
+    "platform": "iOS/iPadOS 14+",
+    "api": "OpenAI 兼容 API（如 Alter API）",
+    "auth": "API Key"
+  },
+  "features": [
+    "剪贴板文字翻译（快速、省钱）",
+    "截屏视觉翻译（准确、全面）",
+    "支持 OpenAI 格式 API",
+    "可集成到分享菜单",
+    "支持 Siri 语音触发"
+  ],
+  "files": {
+    "main": "SKILL.md",
+    "readme": "README.md",
+    "config": "config-template.json",
+    "tutorial_text": "shortcut-steps-text.md"
+  },
+  "notes": "麦先生专用，配合 Alter API 使用"
+}

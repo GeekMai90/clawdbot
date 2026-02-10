@@ -18,7 +18,7 @@ from pathlib import Path
 # ─── 配置 ───────────────────────────────────────────────────
 OBSIDIAN_SAVE_DIR = Path(
     os.path.expanduser(
-        "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/网络收藏"
+        "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/04-资源/网络收藏"
     )
 )
 

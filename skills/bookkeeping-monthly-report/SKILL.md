@@ -1,6 +1,6 @@
 ---
 name: bookkeeping-monthly-report
-description: "Generate the monthly bookkeeping report for 麦先生 (data-first with a bit of reflection), then send a text version via Telegram and save a full Markdown version into Obsidian. Use when the monthly bookkeeping cron fires (1st day 09:00), or when the user asks for last month’s bookkeeping summary/report. Reads GeekMaiOB/记账/YYYY-MM.md and uses bookkeeping stats output."
+description: "Generate the monthly bookkeeping report for 麦先生 (data-first with a bit of reflection), then send a text version via Telegram and save a full Markdown version into Obsidian. Use when the monthly bookkeeping cron fires (1st day 09:00), or when the user asks for last month’s bookkeeping summary/report. Reads GeekMaiOB/02-生活/记账/YYYY-MM.md and uses bookkeeping stats output."
 ---
 
 # Bookkeeping Monthly Report
@@ -51,7 +51,7 @@ Then:
 ## Output location (Obsidian)
 
 Write to:
-- `GeekMaiOB/记账/月报/YYYY-MM-月报.md`
+- `GeekMaiOB/02-生活/记账/月报/YYYY-MM-月报.md`
 
 Create folder if missing.
 
