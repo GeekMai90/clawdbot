@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "createdAt": "2026-02-18T13:54:32.442Z",
+  "processed": {
+    "dinox/Super Whisper自动化视频发布与封面制作_dinox.md": {
+      "size": 362,
+      "mtimeMs": 1770774593000,
+      "processedAt": "2026-02-18T13:54:32.445Z",
+      "title": "2026年2月11日 09:49",
+      "preview": "使用 Super Whisper 可以做一个自动化功能，视频发布，一键打开多个预设的网址。然后还能做一个封面制作，一键打开搞定设计。"
+    },
+    "dinox/Super Whisper语音创建代办事项_dinox.md": {
+      "size": 257,
+      "mtimeMs": 1770774593000,
+      "processedAt": "2026-02-18T13:54:32.445Z",
+      "title": "2026年2月11日 09:49",
+      "preview": "使用 Super Whisper 做一个自动化功能，语音创建代办事项。"
+    },
+    "voicenotes/2026-02-16 大年三十日的庆祝活动.md": {
+      "size": 410,
+      "mtimeMs": 1771421976000,
+      "processedAt": "2026-02-18T13:54:32.446Z",
+      "title": "2026年2月18日 21:39",
+      "preview": "大年三十日的庆祝活动 Date: 2026-02-16"
+    },
+    "voicenotes/2026-02-18 OpenCloud技能设置与闪电笔记整理.md": {
+      "size": 542,
+      "mtimeMs": 1771421976000,
+      "processedAt": "2026-02-18T13:54:32.446Z",
+      "title": "2026年2月18日 21:39",
+      "preview": "OpenCloud技能设置与闪电笔记整理 Date: 2026-02-18"
+    },
+    "voicenotes/2026-02-18 测试OpenClaw自动整理闪电笔记技能.md": {
+      "size": 352,
+      "mtimeMs": 1771423166000,
+      "processedAt": "2026-02-18T13:59:59.993Z",
+      "title": "2026年2月18日 21:59",
+      "preview": "测试一下我在OpenClaw当中打造的自动整理闪电笔记的这个技能是否正常运转。"
+    },
+    "dinox/部署图片压缩网页工具至NATs_dinox.md": {
+      "size": 405,
+      "mtimeMs": 1771426568893.6519,
+      "processedAt": "2026-02-19T00:30:04.606Z",
+      "title": "2026年2月18日 22:56",
+      "preview": "要一个部署一个网页工具，就是压缩图片的。这个虽然不是高频使用，但是有时候需要压缩图片的时候，还是挺麻烦的。也找一个这样的网页工具，然后部署到NATs当中。"
+    },
+    "dinox/AI网页工具裁剪银行凭证PDF_dinox.md": {
+      "size": 560,
+      "mtimeMs": 1771426568899.4685,
+      "processedAt": "2026-02-19T00:30:04.607Z",
+      "title": "2026年2月18日 22:56",
+      "preview": "借助 AI 开发一个网页版的工具，就是把银行凭证的 PDF 文档给它剪切成一张一张的图片，不同银行的裁剪尺寸不同。嗯，这次给它设置成可以在 Docker 当中部"
+    }
+  },
+  "updatedAt": "2026-02-19T00:30:04.608Z"
+}
