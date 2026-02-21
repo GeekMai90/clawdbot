@@ -17,7 +17,7 @@
 
 2. **记账技能**（bookkeeping）
    - 全部用 Markdown：月度账单 / 待报销 / 订阅管理
-   - 存储位置：`GeekMaiOB/02-生活/记账/`
+   - 存储位置：`GeekMaiOB/30-运行记录/财务记录/`
    - 流水账形式，按时间追加，非常适合 Markdown
 
 **何时用 JSON？**
@@ -100,7 +100,7 @@
 - 已技能化：**obsidian-diary**。
 - **触发**：麦先生发送的消息第一行以「日记」开头。
 - **内容**：从第二行开始作为日记正文。
-- **存储**：写入 Obsidian Vault `GeekMaiOB/01-日记/私人日记/YYYY-MM.md`（按月文件；不存在则创建）。
+- **存储**：写入 Obsidian Vault `GeekMaiOB/30-运行记录/私人日记/YYYY-MM.md`（按月文件；不存在则创建）。
 - **格式**：在文件末尾追加：
   - 分隔线 `---`
   - 时间戳 `YYYY-MM-DD HH:MM`

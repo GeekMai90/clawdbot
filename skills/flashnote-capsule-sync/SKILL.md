@@ -1,6 +1,6 @@
 ---
 name: flashnote-capsule-sync
-description: 将 Obsidian 的“04-资源/闪念笔记/dinox”和“voicenotes”中新增加的 Markdown 笔记提取主要内容，并按“闪念胶囊.md”格式追加。用于每日定时归档闪念、手动补跑同步、或排查是否有漏同步。
+description: 将 Obsidian 的"00-收集区/闪念笔记/dinox"和"voicenotes"中新增加的 Markdown 笔记提取主要内容，并按"闪念胶囊.md"格式追加。用于每日定时归档闪念、手动补跑同步、或排查是否有漏同步。
 ---
 
 # flashnote-capsule-sync
@@ -10,10 +10,10 @@ description: 将 Obsidian 的“04-资源/闪念笔记/dinox”和“voicenotes�
 ## 路径约定
 
 - 来源目录：
-  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/04-资源/闪念笔记/dinox`
-  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/04-资源/闪念笔记/voicenotes`
+  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/dinox`
+  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/voicenotes`
 - 目标文件：
-  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/04-资源/闪念笔记/闪念胶囊.md`
+  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/闪念胶囊.md`
 - 已处理状态：
   - `/Users/geekmai/clawd/skills/flashnote-capsule-sync/data/processed-files.json`
 
@@ -25,7 +25,7 @@ description: 将 Obsidian 的“04-资源/闪念笔记/dinox”和“voicenotes�
 cd /Users/geekmai/clawd
 ```
 
-### 1) 首次初始化（只建立“已处理清单”，不写入胶囊）
+### 1) 首次初始化（只建立"已处理清单"，不写入胶囊）
 
 ```bash
 node skills/flashnote-capsule-sync/scripts/sync.js --bootstrap

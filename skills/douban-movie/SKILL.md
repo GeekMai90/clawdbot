@@ -9,7 +9,7 @@ description: 豆瓣电影推荐系统：智能推荐经典/热门/最新电影�
 
 **数据存储（混合方案）：**
 - 📚 **参考库**（JSON）：`skills/douban-movie/data/` - TOP250 和热门数据
-- 📝 **用户数据**（Markdown）：`GeekMaiOB/02-生活/电影/` - Obsidian 中的观影记录
+- 📝 **用户数据**（Markdown）：`GeekMaiOB/30-运行记录/观影记录/` - Obsidian 中的观影记录
 
 ---
 
@@ -623,7 +623,7 @@ A: 当前版本只支持 TOP250。如果需要，可以手动编辑 `movies.json
 
 ### 📝 用户数据（Markdown，存储在 Obsidian）
 
-存储位置：`GeekMaiOB/02-生活/电影/`
+存储位置：`GeekMaiOB/30-运行记录/观影记录/`
 
 **1️⃣ 观影记录（按年分文件）**
 

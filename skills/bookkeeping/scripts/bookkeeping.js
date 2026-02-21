@@ -14,7 +14,7 @@ const path = require('path');
 
 // Obsidian vault 路径
 const VAULT_PATH = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
-const BOOKKEEPING_DIR = path.join(VAULT_PATH, '02-生活/记账');
+const BOOKKEEPING_DIR = path.join(VAULT_PATH, '30-运行记录/财务记录');
 
 // 确保目录存在
 if (!fs.existsSync(BOOKKEEPING_DIR)) {
@@ -351,7 +351,7 @@ function removeSubscription(name) {
 }
 
 /**
- * 备份文件到 Obsidian/02-生活/记账/_backup/YYYY-MM-DD/
+ * 备份文件到 Obsidian/30-运行记录/财务记录/_backup/YYYY-MM-DD/
  */
 function backupFiles(opts = {}) {
   const { yearMonth = null, includeReimburse = true, includeSubscriptions = true } = opts;

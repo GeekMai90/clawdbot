@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const VAULT = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
-const BASE_DIR = path.join(VAULT, '04-资源/闪念笔记');
+const BASE_DIR = path.join(VAULT, '00-收集区/闪念笔记');
 const SOURCE_DIRS = [path.join(BASE_DIR, 'dinox'), path.join(BASE_DIR, 'voicenotes')];
 const CAPSULE = path.join(BASE_DIR, '闪念胶囊.md');
 const STATE = path.join('/Users/geekmai/clawd/skills/flashnote-capsule-sync/data', 'processed-files.json');
