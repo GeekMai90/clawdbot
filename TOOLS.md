@@ -893,4 +893,44 @@ node bookkeeping.js backup
 
 ---
 
+## 书签整理（bookmark-organizer）🔖
+
+**书签文件**: `GeekMaiOB/50-资源资料/书签/bookmarks.md`
+**技能位置**: `skills/bookmark-organizer/`
+
+**触发方式**: 麦先生说「整理书签」或「整理收集箱」
+
+**书签格式（DataView 内联字段）**：
+```
+- name:: 网站名称
+  alias:: 简短别名
+  url:: https://example.com/
+  tags:: 工具, AI, 参考
+  saved:: 2026-02-24
+```
+
+**常用命令：**
+
+```bash
+cd /Users/geekmai/clawd
+
+# 查看待整理条目
+node skills/bookmark-organizer/scripts/organize.js --list-inbox
+
+# 查看现有分类
+node skills/bookmark-organizer/scripts/organize.js --list-sections
+
+# 移动条目到分类（含补全 alias/tags）
+node skills/bookmark-organizer/scripts/organize.js --apply --move "条目名" --to "03 开发与技术" --alias "github.com" --tags "平台, 编程, 开源"
+
+# 直接新增书签
+node skills/bookmark-organizer/scripts/organize.js --add-entry "名称|别名|分类|URL|标签1,标签2"
+```
+
+**现有分类（12个）**: 00 常用、01 项目与工作、02 学习与课程、03 开发与技术、04 AI 与自动化、05 内容创作、06 资源素材、07 资讯与阅读、08 效率工具、09 社区与平台、10 生活服务、99 收集箱
+
+**核心 Tag（30个）**: 工具、课程、文档、文章、视频、社区、资源、平台、项目、AI、编程、设计、效率、写作、商业、产品、数据、运营、教育、学习、参考、资讯、灵感、素材、收藏、API、自动化、开源、插件、工作流
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.
