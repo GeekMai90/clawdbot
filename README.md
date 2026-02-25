@@ -8,23 +8,63 @@
 - `SOUL.md` - 灵瑶的性格和行为准则
 - `USER.md` - 麦先生的个人信息
 - `AGENTS.md` - 工作区说明和规则
-- `TOOLS.md` - 本地工具配置和技巧
+- `TOOLS.md` - 本地工具配置和快查
 - `HEARTBEAT.md` - 心跳检查清单
 - `IDENTITY.md` - 身份信息
 
-### 📝 记忆系统
-- `MEMORY.md` - 长期记忆（主会话专用）
+### 📝 记忆系统（三层架构）
+- `memory/core.md` - 🔥 HOT：每次都加载的核心规则（极简）
+- `MEMORY.md` - ♻️ WARM：长期记忆，按需加载（主会话专用）
 - `memory/` - 每日记忆文件（按日期组织）
+- `memory/_archive/` - 🗄️ COLD：30天以上旧日志归档
 
-### 🛠️ 自定义技能
-- `skills/` - 所有自定义技能
-  - `airbrush/` - Airbrush AI 文生图
-  - `bookkeeping/` - 记账技能
-  - `douban-movie/` - 豆瓣电影推荐
-  - `obsidian-diary/` - Obsidian 日记
-  - `weather-morning/` - 早晨天气提醒
-  - `memory-backup/` - 自动备份到 GitHub
-  - ... 以及更多
+### 🛠️ 自定义技能（33 个）
+
+#### 提醒 & 生活
+- `weather-morning/` - 早晨天气提醒（07:00）
+- `lunch-reminder/` - 午餐提醒（10:25）
+- `diary-reminder/` - 日记提醒（22:00）
+
+#### 笔记 & 内容
+- `obsidian-diary/` - Obsidian 日记写入
+- `url-reader/` - 网页抓取存 Obsidian
+- `bookmark-organizer/` - 书签整理
+- `flashnote-capsule-sync/` - 闪念胶囊同步
+- `content-production/` - 内容生产系统
+- `notion-topic/` - 选题记录到 Notion
+
+#### 财务 & 记录
+- `bookkeeping/` - 记账 / 报销 / 订阅管理
+- `bookkeeping-monthly-report/` - 月度账单报告
+- `douban-movie/` - 豆瓣电影推荐 & 观影记录
+
+#### AI & 创作
+- `airbrush/` - Airbrush AI 文生图
+- `speckit-code/` - Spec 驱动开发
+
+#### 输入法
+- `rime-squirrel/` - 鼠须管小鹤音形
+- `rime-flypy/` - 小鹤音形词库
+- `logos-codebook-sync/` - 落格输入法码表同步
+
+#### 系统 & 运维
+- `memory-backup/` - 自动备份到 GitHub（03:00）
+- `self-improving-agent/` - 自我改进记录
+- `weekly-system-healthcheck/` - 每周系统体检（周六 10:00）
+- `openclaw-security-auditor/` - 安全审计
+- `openclaw-tutorial-writer/` - 公开教程撰写
+- `openclaw-update-checker/` - 版本更新检查
+- `second-brain-start/` - 启动第二大脑 App
+- `second-brain-stop/` - 停止第二大脑 App
+
+#### 工具 & 集成
+- `telegram-offline-voice/` - Telegram 本地语音 TTS
+- `apple-mail-search/` / `apple-mail-search-safe/` - Apple Mail 搜索
+- `getnote-kb/` - Get 笔记知识库
+- `byterover-headless/` - ByteRover 知识库
+- `discord-translator/` - Discord 翻译
+- `appsumo-watcher/` - AppSumo 监控
+- `voicenotes-official/` - 语音笔记
 
 ## 🔐 隐私说明
 
@@ -47,8 +87,8 @@
 如果本地文件丢失，可以从 GitHub 恢复：
 
 ```bash
-# 克隆仓库
-git clone git@github.com:GeekMai90/clawdbot.git ~/clawd-restored
+# 克隆私有仓库
+git clone git@github.com:GeekMai90/clawd-private.git ~/clawd-restored
 
 # 复制文件回 workspace
 cp -r ~/clawd-restored/* /Users/geekmai/clawd/
@@ -56,7 +96,7 @@ cp -r ~/clawd-restored/* /Users/geekmai/clawd/
 
 ## 📊 仓库统计
 
-- 自定义技能：25+ 个
+- 自定义技能：33 个
 - 每日记忆：持续积累中
 - 最后更新：自动备份
 

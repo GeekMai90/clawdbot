@@ -46,30 +46,41 @@ description: "整理 Obsidian 书签文件（bookmarks.md）：将「99 收集�
 用途：学习、参考、资讯、灵感、素材、收藏
 技术类：API、自动化、开源、插件、工作流
 
-## 执行流程
+## 执行流程（AI 智能模式）
 
+### 1. 读取收集箱
 ```bash
 cd /Users/geekmai/clawd
-
-# 1. 查看待整理条目
 node skills/bookmark-organizer/scripts/organize.js --list-inbox
+```
 
-# 2. 批量整理（AI 逐条分类 + 补全 alias/tags）
-node skills/bookmark-organizer/scripts/organize.js --apply \
-  --move "条目名" --to "03 开发与技术" \
-  --alias "github.com" --tags "平台, 编程, 开源"
+### 2. AI 逐条分析（核心）
+对每条书签，结合以下信息判断分类/alias/tags：
+- name 和 url 字符串
+- 对该网站的已知知识
+- 必要时用 web_fetch 抓页面摘要
 
-# 3. 查看所有分类
+### 3. 执行归类
+```bash
+node skills/bookmark-organizer/scripts/organize.js \
+  --apply --move "书签名称" --to "04 AI 与自动化" \
+  --alias "ChatGPT" --tags "工具, AI, 参考"
+```
+
+### 4. 查看结果
+```bash
 node skills/bookmark-organizer/scripts/organize.js --list-sections
 ```
 
-## 整理原则
+## alias 原则
+- ✅ 有意义的功能描述：`众马云会计`、`微信公众号`、`ChatGPT`
+- ❌ 不要只写域名：`zmyun.com`（除非域名本身就有意义如 `github.com`）
+- 长度 2-10 字
 
-1. **分类优先复用**：能放现有分类就不新建
-2. **alias 要有意义**：域名 or 功能描述（2-10字），不要为空
-3. **tags 严格限制**：只用30个核心 tag，每条 2-4 个
-4. **格式保持一致**：不改动已有字段格式
+## tags 原则
+- 只用 30 个核心 tag，每条 2-4 个
+- 结构：内容类型 + 领域 + 用途
+- 禁止创造新 tag
 
 ## 定时任务
-
-每周日 10:00 自动检查收集箱，有内容才整理 + 发 Telegram 汇报。
+每周日 10:00 由 isolated agent 自动运行，AI 智能判断，整理完发 Telegram 汇报。
