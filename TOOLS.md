@@ -160,3 +160,46 @@ curl -sX PATCH "https://api.notion.com/v1/blocks/{id}/children" \
 - NAS：`https://ug.link/geekmai`
 - GitHub 私有备份仓库：`git@github.com:GeekMai90/clawd-private.git`
 - Telegram chatId（麦先生）：`5233110346`
+
+---
+
+## 绿联 NAS
+
+**局域网地址**：`192.168.99.150`（端口 22）
+**SSH 账号**：Keychain `nas_user` / `nas_pass`
+**SSH 连接方式**（用 expect）：
+```bash
+NAS_PASS=$(security find-generic-password -s nas_pass -w)
+expect << 'EEOF'
+spawn ssh -o StrictHostKeyChecking=no GeekMai@192.168.99.150
+expect "password:"
+send "$env(NAS_PASS)\r"
+expect "$ "
+send "你的命令\r"
+expect "$ "
+send "exit\r"
+expect eof
+EEOF
+```
+
+**Cloudflare 凭据**（Keychain）：
+- `cloudflare_auth_email_geekmai_cc` / `cloudflare_global_api_key_geekmai_cc`
+- Account ID：`c4fea710207e61adcf8850d4c90f845b`
+- Zone ID：`1c7e0512ce6d0333b5c6ea263ecfd4ea`
+- Tunnel `nas-vault` ID：`a4c6ad1a-d0a0-4009-95e7-bdd563973e54`
+- 部署标准流程：Obsidian `50-资源资料/工具说明/NAS/UGREEN NAS 服务部署与域名接入标准流程（给 AI 执行）.md`
+
+---
+
+## Star Office UI（像素办公室）
+
+**公网**：https://star.geekmai.cc
+**局域网**：http://192.168.99.150:13011
+**容器**：`star-office-ui` | 目录：`/volume1/docker/star-office-ui/`
+
+**更新状态**（状态有效期 25 秒后自动回 idle）：
+```bash
+NAS_PASS=$(security find-generic-password -s nas_pass -w)
+# 状态值：idle / writing / researching / executing / syncing / error
+ssh GeekMai@192.168.99.150 "python3 /volume1/docker/star-office-ui/set_state.py writing '正在处理...'"
+```
