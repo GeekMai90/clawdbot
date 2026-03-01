@@ -41,7 +41,29 @@
 
 ---
 
-## 常用入口
+## 常用入口 🗄️ 可归档（与 TOOLS.md 重复）
 
 - NAS：`https://ug.link/geekmai`
 - GitHub 私有备份：`git@github.com:GeekMai90/clawd-private.git`
+
+---
+
+## 2026-03-01 每周蒸馏（近 7 天）
+
+1. **Cron 投递必须用 chatId，不能用用户名**
+   过去一周再次出现 Telegram 目标写成用户名导致发送失败（如 `麦先生` / `geekmai`）的问题，已统一修正为 `5233110346`。这条规则已经从“经验”升级为“强约束”，后续所有 cron/消息技能默认显式写 chatId，避免静默漏提醒。
+
+2. **记忆系统分层已完成重构并进入稳定维护期**
+   已完成 `core + user-prefs + agent-notes + MEMORY索引 + 日志归档` 的分层体系，MEMORY.md 只保留索引和高优先规则。维护节奏固定为「每日 01:00 轻蒸馏 + 每周日 22:00 全量蒸馏 + 每日 03:00 备份」，属于当前长期架构基线。
+
+3. **Notion 选题技能字段以“可用最小集”为准**
+   `notion-topic` 实测中删除了“简介”字段后才稳定写入，说明数据库 schema 漂移会直接导致技能失败。后续 Notion 类技能应优先按当前数据库真实字段写入，避免依赖可选字段。
+
+4. **Docker 相关任务在本机需考虑 sudo/镜像网络现实约束**
+   macOS 上即使用户无登录密码，终端安装 Docker Desktop 仍可能触发 sudo 交互限制；这类安装需优先给图形化安装路径。国内网络场景下 Docker Hub 拉取常失败，需预置 registry mirrors 再继续容器部署。
+
+5. **公网访问链路已验证可用，KKClaw 属于附加层而非核心层**
+   `claw.geekmai.cc` → Cloudflare Tunnel → OpenClaw Gateway 的主链路已打通，远程访问能力可作为稳定能力沉淀。KKClaw 本周验证结果是“可连但价值有限”，定位为可选玩具层，不影响主系统决策。
+
+6. **23:50 每日笔记整理 cron 已替代 22:00 日记提醒 cron**
+   旧的“22:00 提醒写日记”已删除，改为睡前静默执行的每日笔记整理流程，并附带自动记账检测。若当天没有 `memory/YYYY-MM-DD.md`，`daily_micro_distill` 需静默退出（graceful guard），避免无效报错噪音。
