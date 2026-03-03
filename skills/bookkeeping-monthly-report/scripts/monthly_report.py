@@ -27,7 +27,7 @@ from pathlib import Path
 VAULT = Path(
     "/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB"
 )
-BOOKKEEPING_DIR = VAULT / "02-生活/记账"
+BOOKKEEPING_DIR = VAULT / "30-运行记录/财务记录"
 REPORT_DIR = BOOKKEEPING_DIR / "月报"
 BOOKKEEPING_CLI_DIR = Path("/Users/geekmai/clawd/skills/bookkeeping")
 BOOKKEEPING_JS = BOOKKEEPING_CLI_DIR / "scripts" / "bookkeeping.js"

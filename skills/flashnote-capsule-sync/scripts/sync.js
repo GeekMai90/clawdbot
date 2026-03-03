@@ -4,7 +4,7 @@ const path = require('path');
 
 const VAULT = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
 const BASE_DIR = path.join(VAULT, '00-收集区/闪念笔记');
-const SOURCE_DIRS = [path.join(BASE_DIR, 'dinox'), path.join(BASE_DIR, 'voicenotes')];
+const SOURCE_DIRS = [path.join(BASE_DIR, 'voicenotes')];
 const CAPSULE = path.join(BASE_DIR, '闪念胶囊.md');
 const STATE = path.join('/Users/geekmai/clawd/skills/flashnote-capsule-sync/data', 'processed-files.json');
 
@@ -172,7 +172,7 @@ function main() {
     }
     saveState(state);
     if (reportJson) {
-      console.log(JSON.stringify({ mode: 'bootstrap', bootstrapped: allFiles.length, added: 0, byFolder: { dinox: 0, voicenotes: 0 } }));
+      console.log(JSON.stringify({ mode: 'bootstrap', bootstrapped: allFiles.length, added: 0, byFolder: { voicenotes: 0 } }));
     } else {
       console.log(`Bootstrapped ${allFiles.length} files. No capsule changes.`);
     }
@@ -182,7 +182,7 @@ function main() {
   const newFiles = allFiles.filter((file) => !state.processed[fileKey(file)]);
   if (!newFiles.length) {
     if (reportJson) {
-      console.log(JSON.stringify({ mode: 'sync', added: 0, byFolder: { dinox: 0, voicenotes: 0 } }));
+      console.log(JSON.stringify({ mode: 'sync', added: 0, byFolder: { voicenotes: 0 } }));
     } else {
       console.log('No new notes found.');
     }
@@ -210,10 +210,9 @@ function main() {
   appendEntries(entries);
   saveState(state);
 
-  const byFolder = { dinox: 0, voicenotes: 0 };
+  const byFolder = { voicenotes: 0 };
   for (const e of entries) {
-    if (e.file.startsWith('dinox/')) byFolder.dinox += 1;
-    else if (e.file.startsWith('voicenotes/')) byFolder.voicenotes += 1;
+    if (e.file.startsWith('voicenotes/')) byFolder.voicenotes += 1;
   }
 
   if (reportJson) {

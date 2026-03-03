@@ -1,6 +1,6 @@
 ---
 name: flashnote-capsule-sync
-description: 将 Obsidian 的"00-收集区/闪念笔记/dinox"和"voicenotes"中新增加的 Markdown 笔记提取主要内容，并按"闪念胶囊.md"格式追加。用于每日定时归档闪念、手动补跑同步、或排查是否有漏同步。
+description: 将 Obsidian 的"00-收集区/闪念笔记/voicenotes"中新增加的 Markdown 笔记提取主要内容，并按"闪念胶囊.md"格式追加。用于每日定时归档闪念、手动补跑同步、或排查是否有漏同步。
 ---
 
 # flashnote-capsule-sync
@@ -10,7 +10,6 @@ description: 将 Obsidian 的"00-收集区/闪念笔记/dinox"和"voicenotes"中
 ## 路径约定
 
 - 来源目录：
-  - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/dinox`
   - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/voicenotes`
 - 目标文件：
   - `/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB/00-收集区/闪念笔记/闪念胶囊.md`
