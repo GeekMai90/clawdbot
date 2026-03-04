@@ -158,3 +158,31 @@ constitution → spec → plan → tasks → implement
 
 - 强制脱敏：API Key / token / chatId / 绝对路径一律用占位符
 - 保存到：`GeekMaiOB/07-工具/OpenClaw教程/`
+
+---
+
+## 配置操作限制
+
+> config.patch 的边界
+
+- `config.patch` 只能合并字段，**无法删除已有的 key**
+- 要删除 key，必须：用 python3 直接操作 `~/.openclaw/openclaw.json` JSON 文件，再 `gateway restart`
+
+---
+
+## 文件写入踩坑
+
+> 路径格式注意事项
+
+- Write 工具和 exec+python3 写文件时，路径中含 `~` 会报错
+- 始终使用完整绝对路径（`/Users/geekmai/...`），不用 `~` 缩写
+
+---
+
+## OpenClaw 语音转录（国内代理环境）
+
+> Shadowrocket TUN 模式导致 SSRF 拦截的绕过方案（2026-03-04）
+
+- **问题**：provider 直连模式下，OpenClaw 先 DNS 解析，Shadowrocket 返回假 IP（198.18.x.x 保留段），SSRF 安全层直接拦截
+- **解法**：用 CLI 包装脚本（`skills/whisper-wrapper.sh`），内部用 curl 走系统代理绕过检查
+- **另一个坑**：原 transcribe.sh 把转录写进文件后输出文件路径，OpenClaw CLI 模式需要 stdout 直接是文本内容——包装脚本最后加 `cat "$OUT_FILE"` 解决
