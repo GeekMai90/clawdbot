@@ -44,20 +44,26 @@ python scripts/url_reader.py https://www.xiaohongshu.com/explore/xxxxx
         └── img_02.jpg
 ```
 
-## 技术方案：两层降级
+## 技术方案：四层降级
 
-### 第一层：Jina Reader（首选）
-- 免费、快速、能搞定大部分网站
+### 第一层：Defuddle（首选）
+- 专为 Obsidian 优化，返回干净 Markdown + YAML frontmatter
+- URL: `https://defuddle.md/{原始URL去掉https://}`
+- 正文提取质量高，标题/作者/日期自动包含在 frontmatter
+
+### 第二层：Firecrawl（有 API Key 时启用）
+- AI 驱动，适合复杂页面
+- 需配置 `~/.config/firecrawl/api_key`
+
+### 第三层：Jina Reader（免费备选）
+- 免费、快速
 - URL: `https://r.jina.ai/{原始URL}`
-- 验证：内容 > 100 字符 + 无验证页特征
 
-### 第二层：Playwright（兜底）
+### 第四层：Playwright（兜底）
 - 真实浏览器访问，什么都能搞
 - 需要预先安装：`pip install playwright && playwright install chromium`
-- 自动选择最佳内容区域
 
 ## 后续扩展方向
-- [ ] 添加 Firecrawl 作为第一层（有 API Key 时启用）
 - [ ] 批量抓取（一次传多个 URL）
 - [ ] 自动去重（检测已收藏的 URL）
 

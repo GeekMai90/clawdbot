@@ -61,7 +61,38 @@ def identify_platform(url: str) -> dict:
     return {"platform": "unknown", "needs_login": False}
 
 
-# ─── 2. Firecrawl（首选，AI驱动） ──────────────────────────
+# ─── 2. Defuddle（首选，专为 Obsidian 优化） ────────────────
+def fetch_defuddle(url: str) -> str | None:
+    """通过 Defuddle API 获取 Markdown 内容（带 YAML frontmatter）"""
+    # 去掉 https:// 或 http:// 前缀
+    url_path = re.sub(r'^https?://', '', url)
+    defuddle_url = f"https://defuddle.md/{url_path}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        "Accept": "text/markdown, text/plain, */*",
+    }
+    try:
+        print("  → 调用 Defuddle…")
+        resp = requests.get(defuddle_url, headers=headers, timeout=20)
+        resp.raise_for_status()
+        content = resp.text
+
+        if len(content) < 100:
+            print("  ⚠ Defuddle 返回内容过短，降级…")
+            return None
+        if any(kw in content for kw in BLACKLIST):
+            print("  ⚠ Defuddle 返回验证页面，降级…")
+            return None
+
+        print(f"  ✓ Defuddle 获取成功（{len(content)} 字符）")
+        return content
+
+    except Exception as e:
+        print(f"  ⚠ Defuddle 失败：{e}，降级…")
+        return None
+
+
+# ─── 3. Firecrawl（备选，AI驱动） ──────────────────────────
 def load_firecrawl_key() -> str | None:
     """从配置文件读取 Firecrawl API Key"""
     key_path = Path(os.path.expanduser("~/.config/firecrawl/api_key"))
@@ -113,7 +144,7 @@ def fetch_firecrawl(url: str) -> str | None:
         return None
 
 
-# ─── 3. Jina Reader（备选，免费） ───────────────────────────
+# ─── 4. Jina Reader（第三层，免费） ─────────────────────────
 def fetch_jina(url: str) -> str | None:
     """通过 Jina Reader 获取 Markdown 内容"""
     jina_url = f"https://r.jina.ai/{url}"
@@ -148,7 +179,7 @@ def fetch_jina(url: str) -> str | None:
         return None
 
 
-# ─── 3. Playwright（兜底） ──────────────────────────────────
+# ─── 5. Playwright（兜底） ──────────────────────────────────
 async def fetch_playwright(url: str, platform: str) -> str | None:
     """通过 Playwright 浏览器自动化获取内容"""
     try:
@@ -232,6 +263,16 @@ async def fetch_playwright(url: str, platform: str) -> str | None:
 def extract_title(markdown: str, url: str) -> str:
     """从 Markdown 中提取标题"""
     skip_keywords = ["来源", "source", "url", "http"]
+
+    # Defuddle 格式：YAML frontmatter 中的 title 字段
+    fm_match = re.search(r'^---\s*\n(.*?)\n---', markdown, re.DOTALL)
+    if fm_match:
+        for fm_line in fm_match.group(1).split("\n"):
+            fm_line = fm_line.strip()
+            if fm_line.lower().startswith("title:"):
+                title = fm_line.split(":", 1)[1].strip().strip('"').strip("'")
+                if title and len(title) > 2:
+                    return title[:80]
 
     for line in markdown.split("\n"):
         line = line.strip()
@@ -398,16 +439,21 @@ async def main():
         print(f"\n📥 {platform} 平台直接使用 Playwright…")
         content = await fetch_playwright(url, platform)
     else:
-        # 第一层：Firecrawl
+        # 第一层：Defuddle
         print("\n📥 抓取内容…")
-        content = fetch_firecrawl(url)
+        content = fetch_defuddle(url)
 
-        # 第二层：Jina
+        # 第二层：Firecrawl
+        if content is None:
+            print("\n📥 降级到 Firecrawl…")
+            content = fetch_firecrawl(url)
+
+        # 第三层：Jina
         if content is None:
             print("\n📥 降级到 Jina…")
             content = fetch_jina(url)
 
-        # 第三层：Playwright
+        # 第四层：Playwright
         if content is None:
             print("\n📥 降级到 Playwright…")
             content = await fetch_playwright(url, platform)

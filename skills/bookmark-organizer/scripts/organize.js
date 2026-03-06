@@ -21,7 +21,7 @@ const path = require('path');
 
 const VAULT = '/Users/geekmai/Library/Mobile Documents/iCloud~md~obsidian/Documents/GeekMaiOB';
 const BOOKMARK_FILE = path.join(VAULT, '50-资源资料/书签/bookmarks.md');
-const INBOX_SECTION = '99 收集箱';
+const INBOX_SECTION = '收集箱';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 // 11 个分类结构
